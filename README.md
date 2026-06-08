@@ -1,39 +1,64 @@
 # env-loader
 
-A simple Rust crate for reading `.env` files. That's pretty much it.
-
-## Features
-
-- Skips comments 
-- Skips Broken Key Value Pairs
-- Returns Error
-- Thats it DUH !
+Reads `.env` files and gives you the key-value pairs. No bells, no whistles, no dependencies.
 
 ## What it does
 
-- Reads `.env` files and parses them
-- Returns the key-value pairs as basic data structures
-- Uses only `std` library (no external dependencies)
-- Does not automatically load variables into your environment (just reads and gives you the data)
+- Parses `.env` files into a `HashMap<String, String>`
+- Skips comments (`#`) and empty lines
+- Skips malformed lines instead of panicking
+- Returns a `Result` so you handle the error your way
+- Zero external dependencies — pure `std`
+- Does **not** load variables into your environment, just reads them
 
 ## Why?
 
-Built for the [env-explorer](https://github.com/SharmaDevanshu089/Env-Explorer) project. Just needed something to write and forget.
+Built for the [Env-Explorer](https://github.com/SharmaDevanshu089/Env-Explorer) project. Needed something small to read `.env` files without pulling in a full dotenv crate.
+
+## Install
+
+Add this to your `Cargo.toml`:
+
+```toml
+[dependencies]
+env-loader = "1.0.0"
+```
 
 ## Usage
-Use the simple funtion to read and load a hashmap in a variables and print them : |
 
+```rust
+use env_loader::read_env_file;
+
+fn main() {
+    let env_vars = read_env_file(".env").unwrap();
+
+    for (key, value) in &env_vars {
+        println!("{} = {}", key, value);
+    }
+
+    // or grab a specific key
+    if let Some(token) = env_vars.get("GITHUB_TOKEN") {
+        println!("token: {}", token);
+    }
+}
 ```
- let env_vars = read_env_file(".env").unwrap();
- println!({:?});
+
+Your `.env` file:
+
+```env
+# this is a comment, gets skipped
+GITHUB_TOKEN=ghp_xxxx
+API_KEY=some_secret
+
+BROKEN_LINE_GETS_SKIPPED
 ```
 
 ## Notes
 
-- Very basic, no feature set
-- Not expecting many updates (it does one thing)
-- Pull requests welcome (Js Rewrite it imo)
+- Does one thing, does it fine
+- Not planning major updates
+- PRs welcome if something's broken
 
 ---
 
-MIT LISENCSE , MADE BY DEVANSHU
+MIT License — Devanshu Sharma

@@ -1,6 +1,15 @@
 [package]
 name = "env-loader"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2024"
+description = "A simple Rust crate for reading `.env` files. That's pretty much it."
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/SharmaDevanshu089/env-loader"
+homepage = "https://github.com/SharmaDevanshu089/env-loader"
+documentation = "https://docs.rs/env-loader"
+keywords = ["Envirment Variables", "Dev tool", "Rust", "Crate" ,"Parse"] 
+categories = ["development-tools"]
 
 [dependencies]
+

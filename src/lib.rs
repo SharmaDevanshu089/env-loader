@@ -2,10 +2,6 @@ use std::collections::HashMap;
 use std::fs::File;
 use std::io::BufRead;
 
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
-
 pub fn read_env_file(file_path: &str) -> Result<HashMap<String, String>, std::io::Error> {
     let mut env_vars = HashMap::new();
     let file = File::open(file_path)?;
@@ -29,12 +25,6 @@ pub fn read_env_file(file_path: &str) -> Result<HashMap<String, String>, std::io
 #[cfg(test)]
 mod tests {
     use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
 
     #[test]
     fn test_read_env_file() {
