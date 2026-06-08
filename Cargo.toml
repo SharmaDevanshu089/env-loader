@@ -1,5 +1,5 @@
 [package]
-name = "env-loader"
+name = "env-file-parser"
 version = "1.0.0"
 edition = "2021"
 description = "Reads .env files and returns key-value pairs. No dependencies, no env mutation."
