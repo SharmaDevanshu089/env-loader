@@ -34,7 +34,7 @@ mod tests {
 
     #[test]
     fn test_read_env_file() {
-        let env_vars = read_env_file("test.env").unwrap();
+        let env_vars = read_env_file(".env").unwrap();
         assert_eq!(env_vars.get("KEY1"), Some(&"VALUE1".to_string()));
         assert_eq!(env_vars.get("KEY2"), Some(&"VALUE2".to_string()));
     }
