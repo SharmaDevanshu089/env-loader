@@ -23,7 +23,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-env-file-parser = "1.0.0"
+env-file-parser = "1.0.1"
 ```
 
 ## Usage
