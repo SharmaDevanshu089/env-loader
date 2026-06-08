@@ -14,11 +14,12 @@ pub fn read_env_file(file_path: &str) -> Result<HashMap<String, String>, std::io
     for line in reader.lines() {
         if let Ok(line) = line {
             if let Some((key, value)) = line.split_once('=') {
-                env_vars.insert(key.trim().to_string(), value.trim().to_string());
+                if !key.trim().is_empty() && !value.trim().is_empty() {
+                    env_vars.insert(key.trim().to_string(), value.trim().to_string());
+                }
             }
         }
     }
-
     Ok(env_vars)
 }
 
@@ -35,6 +36,7 @@ mod tests {
     #[test]
     fn test_read_env_file() {
         let env_vars = read_env_file(".env").unwrap();
+        println!("{:?}", env_vars);
         assert_eq!(env_vars.get("KEY1"), Some(&"VALUE1".to_string()));
         assert_eq!(env_vars.get("KEY2"), Some(&"VALUE2".to_string()));
     }
