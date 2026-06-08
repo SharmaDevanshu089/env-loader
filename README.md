@@ -2,6 +2,8 @@
 
 Reads `.env` files and gives you the key-value pairs. No bells, no whistles, no dependencies.
 
+> Renamed to `env-file-parser` due to env-loader being taken on Crates.io
+
 ## What it does
 
 - Parses `.env` files into a `HashMap<String, String>`
@@ -21,7 +23,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-env-loader = "1.0.0"
+env-file-parser = "1.0.0"
 ```
 
 ## Usage
