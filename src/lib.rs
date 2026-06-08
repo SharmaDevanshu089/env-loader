@@ -13,6 +13,9 @@ pub fn read_env_file(file_path: &str) -> Result<HashMap<String, String>, std::io
 
     for line in reader.lines() {
         if let Ok(line) = line {
+            if Box::new(line).starts_with('#') || line.trim().is_empty() {
+                continue;
+            }
             if let Some((key, value)) = line.split_once('=') {
                 if !key.trim().is_empty() && !value.trim().is_empty() {
                     env_vars.insert(key.trim().to_string(), value.trim().to_string());
