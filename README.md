@@ -2,6 +2,13 @@
 
 A simple Rust crate for reading `.env` files. That's pretty much it.
 
+## Features
+
+- Skips comments 
+- Skips Broken Key Value Pairs
+- Returns Error
+- Thats it DUH !
+
 ## What it does
 
 - Reads `.env` files and parses them
@@ -11,21 +18,22 @@ A simple Rust crate for reading `.env` files. That's pretty much it.
 
 ## Why?
 
-Built for the [env-explorer](https://github.com/SharmaDevanshu089/Env-Explorer) project. Needed something lightweight to parse `.env` files without all the bells and whistles of bigger libraries.
+Built for the [env-explorer](https://github.com/SharmaDevanshu089/Env-Explorer) project. Just needed something to write and forget.
 
 ## Usage
-Use the simple funtion to read and load a hashmap in a variables
+Use the simple funtion to read and load a hashmap in a variables and print them : |
 
 ```
  let env_vars = read_env_file(".env").unwrap();
+ println!({:?});
 ```
 
 ## Notes
 
-- Very basic, minimal feature set
+- Very basic, no feature set
 - Not expecting many updates (it does one thing)
-- Pull requests welcome if you find bugs though
+- Pull requests welcome (Js Rewrite it imo)
 
 ---
 
-Made with ☕ and Rust
+MIT LISENCSE , MADE BY DEVANSHU
